@@ -1,0 +1,90 @@
+[gd_scene format=3 uid="uid://cwa8v2co2caog"]
+
+[ext_resource type="Script" uid="uid://cd5lcebgvb8qm" path="res://Assets/Scripts/LevelManager.gd" id="1_p16ii"]
+[ext_resource type="Texture2D" uid="uid://chcknhg0qok0a" path="res://Assets/Sprites/invaders.png" id="1_wiojp"]
+[ext_resource type="Script" uid="uid://b17o400ykgkn" path="res://Assets/Scripts/Player.gd" id="2_5b232"]
+[ext_resource type="PackedScene" uid="uid://cf7y5ooxhg1m0" path="res://Assets/Scenes/Barrier.tscn" id="3_4hes5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5b232"]
+atlas = ExtResource("1_wiojp")
+region = Rect2(62, 0, 22, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p16ii"]
+size = Vector2(22, 10)
+
+[node name="Level" type="Node2D" unique_id=1360223823]
+script = ExtResource("1_p16ii")
+
+[node name="Player" type="Sprite2D" parent="." unique_id=204801049]
+position = Vector2(320, 335)
+scale = Vector2(2, 1.25)
+texture = SubResource("AtlasTexture_5b232")
+script = ExtResource("2_5b232")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Player" unique_id=1336306000]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/StaticBody2D" unique_id=965872640]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_p16ii")
+
+[node name="Barriers" type="Node2D" parent="." unique_id=1974868368]
+
+[node name="Barrier" parent="Barriers" unique_id=2088930186 instance=ExtResource("3_4hes5")]
+position = Vector2(92, 275)
+
+[node name="Barrier2" parent="Barriers" unique_id=246954830 instance=ExtResource("3_4hes5")]
+position = Vector2(244, 275)
+
+[node name="Barrier3" parent="Barriers" unique_id=1006989903 instance=ExtResource("3_4hes5")]
+position = Vector2(396, 275)
+
+[node name="Barrier4" parent="Barriers" unique_id=1160361460 instance=ExtResource("3_4hes5")]
+position = Vector2(548, 275)
+
+[node name="ScoreLabel" type="Label" parent="." unique_id=1475660503]
+offset_left = 69.0
+offset_top = 337.0
+offset_right = 130.0
+offset_bottom = 360.0
+text = "Score: 0"
+
+[node name="LivesLabel" type="Label" parent="." unique_id=228636364]
+offset_top = 337.0
+offset_right = 57.0
+offset_bottom = 360.0
+text = "Lives: 0"
+
+[node name="GameOverPanel" type="Panel" parent="." unique_id=1480193180]
+visible = false
+z_index = 2
+offset_right = 640.0
+offset_bottom = 360.0
+
+[node name="GameOverLabel" type="Label" parent="GameOverPanel" unique_id=2128487367]
+layout_mode = 0
+offset_left = 246.0
+offset_top = 22.0
+offset_right = 409.0
+offset_bottom = 64.0
+theme_override_font_sizes/font_size = 30
+text = "Game Over"
+
+[node name="FinalScoreLabel" type="Label" parent="GameOverPanel" unique_id=225353066]
+layout_mode = 0
+offset_left = 259.0
+offset_top = 107.0
+offset_right = 361.0
+offset_bottom = 130.0
+text = "Final Score: 0"
+
+[node name="RestartButton" type="Button" parent="GameOverPanel" unique_id=775118789]
+layout_mode = 0
+offset_left = 288.0
+offset_top = 289.0
+offset_right = 353.0
+offset_bottom = 320.0
+text = "Restart"
+
+[connection signal="pressed" from="GameOverPanel/RestartButton" to="." method="_on_restart_button_pressed"]

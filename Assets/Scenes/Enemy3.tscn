@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://5v7qt2tx0r66"]
+
+[ext_resource type="Texture2D" uid="uid://chcknhg0qok0a" path="res://Assets/Sprites/invaders.png" id="1_bv2fu"]
+[ext_resource type="Script" uid="uid://b4r1s11m3k3ye" path="res://Assets/Scripts/Enemy.gd" id="2_xgig2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xgig2"]
+atlas = ExtResource("1_bv2fu")
+region = Rect2(22, 0, 16, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c4ge2"]
+size = Vector2(16, 16)
+
+[node name="Enemy3" type="Sprite2D" unique_id=2075743585]
+scale = Vector2(1.5, 1.5)
+texture = SubResource("AtlasTexture_xgig2")
+vframes = 2
+script = ExtResource("2_xgig2")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=561980923]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=284502280]
+shape = SubResource("RectangleShape2D_c4ge2")

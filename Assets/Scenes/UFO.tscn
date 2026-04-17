@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://w7mmbdetyuwu"]
+
+[ext_resource type="Texture2D" uid="uid://c8ei6rhexxuu0" path="res://Assets/Sprites/ufo.png" id="1_3ppv1"]
+[ext_resource type="Script" uid="uid://dk6wd5be85oqc" path="res://Assets/Scripts/UFO.gd" id="2_2d3us"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nidsm"]
+size = Vector2(32, 14)
+
+[node name="Sprite2D" type="Sprite2D" unique_id=1100227887]
+scale = Vector2(2, 2)
+texture = ExtResource("1_3ppv1")
+script = ExtResource("2_2d3us")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=948506325]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1179590154]
+shape = SubResource("RectangleShape2D_nidsm")

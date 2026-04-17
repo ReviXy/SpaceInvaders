@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://cf7y5ooxhg1m0"]
+
+[ext_resource type="Texture2D" uid="uid://chcknhg0qok0a" path="res://Assets/Sprites/invaders.png" id="1_78ed3"]
+[ext_resource type="Script" uid="uid://cx1k3mfl25tm0" path="res://Assets/Scripts/Barrier.gd" id="2_eq06n"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eq06n"]
+atlas = ExtResource("1_78ed3")
+region = Rect2(84, 8, 36, 24)
+
+[node name="Barrier" type="Sprite2D" unique_id=2088930186]
+scale = Vector2(2, 2)
+texture = SubResource("AtlasTexture_eq06n")
+script = ExtResource("2_eq06n")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1476433487]
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=794085815]
+visible = false
+polygon = PackedVector2Array(-18, 12, -18, -2, -16, -2, -16, -6, -14, -6, -14, -8, -12, -8, -12, -10, -8, -10, -8, -12, 8, -12, 8, -10, 12, -10, 12, -8, 14, -8, 14, -6, 16, -6, 16, -2, 18, -2, 18, 12, 8, 12, 8, 4, 6, 4, 6, 2, 4, 2, 4, 0, -4, 0, -4, 2, -6, 2, -6, 4, -8, 4, -8, 12)
