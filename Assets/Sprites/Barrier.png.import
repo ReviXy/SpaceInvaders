@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://chcknhg0qok0a"
-path.s3tc="res://.godot/imported/invaders.png-c1483165a63f8a18bac157accb26cbe2.s3tc.ctex"
+uid="uid://chtjtuiu75gan"
+path.s3tc="res://.godot/imported/Barrier.png-b1125bae587f0ec359ea8e6ec1acecd1.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Sprites/invaders.png"
-dest_files=["res://.godot/imported/invaders.png-c1483165a63f8a18bac157accb26cbe2.s3tc.ctex"]
+source_file="res://Assets/Sprites/Barrier.png"
+dest_files=["res://.godot/imported/Barrier.png-b1125bae587f0ec359ea8e6ec1acecd1.s3tc.ctex"]
 
 [params]
 

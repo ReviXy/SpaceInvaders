@@ -1,15 +1,29 @@
 [gd_scene format=3 uid="uid://cf7y5ooxhg1m0"]
 
-[ext_resource type="Texture2D" uid="uid://chcknhg0qok0a" path="res://Assets/Sprites/invaders.png" id="1_78ed3"]
+[ext_resource type="Shader" uid="uid://bw0d02fe56h8j" path="res://Assets/Shaders/Barrier.gdshader" id="1_hn2gv"]
 [ext_resource type="Script" uid="uid://cx1k3mfl25tm0" path="res://Assets/Scripts/Barrier.gd" id="2_eq06n"]
+[ext_resource type="Texture2D" uid="uid://chtjtuiu75gan" path="res://Assets/Sprites/Barrier.png" id="2_hn2gv"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_eq06n"]
-atlas = ExtResource("1_78ed3")
-region = Rect2(84, 8, 36, 24)
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_5yfry"]
+frequency = 0.025
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_lgglr"]
+width = 64
+height = 64
+noise = SubResource("FastNoiseLite_5yfry")
+seamless = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jfejj"]
+resource_local_to_scene = true
+shader = ExtResource("1_hn2gv")
+shader_parameter/barrier = ExtResource("2_hn2gv")
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_lgglr")
+shader_parameter/proportion = 1.0
 
 [node name="Barrier" type="Sprite2D" unique_id=2088930186]
+material = SubResource("ShaderMaterial_jfejj")
 scale = Vector2(2, 2)
-texture = SubResource("AtlasTexture_eq06n")
+texture = ExtResource("2_hn2gv")
 script = ExtResource("2_eq06n")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1476433487]

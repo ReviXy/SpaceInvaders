@@ -14,6 +14,7 @@ func _process(delta: float) -> void:
 
 func take_damage(damage) -> void:
 	hp -= damage;
+	(material as ShaderMaterial).set_shader_parameter("proportion", float(hp) / 100)
 	if (hp <= 0): 
 		visible = false;
 		shape.set_deferred("disabled", true);

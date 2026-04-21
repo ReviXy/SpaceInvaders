@@ -31,7 +31,7 @@ var enemyScoreRewards = {
 
 var ufoScene = preload("res://Assets/Scenes/UFO.tscn");
 var ufo: UFO;
-var ufoChance = 0.015;
+var ufoChance = 0.02;
 
 @onready var scoreLabel = $ScoreLabel;
 @onready var livesLabel = $LivesLabel;
